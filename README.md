@@ -2,11 +2,11 @@
 
 A simple mini-plugin that gives players party crackers that can be thrown onto the ground and explode into a burst of particles after a few seconds and then drop random reward item(s).
 
-<h2 align=center>Commands </h2>
+## Commands
 
-- cracker give <cracker-name> <amount> -> Gives the sender an x amount or 1 if not defined of the specified cracker. (crackers.give)
+- cracker give <cracker-name> <amount> -> Gives the sender an x amount, or 1 if not defined, of the specified cracker. (crackers.give)
 
-<h2 align=center>Parameters and Configuration </h2>
+## Parameters and Configuration
 Each cracker has their own YML file with the following 7 parameteres / sections:
 
 ### Identification
