@@ -1,0 +1,3 @@
+http-request:
+  url: "https://httpbin.org/anything"
+  bearer-token:

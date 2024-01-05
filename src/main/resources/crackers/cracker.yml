@@ -1,0 +1,70 @@
+identifier: gold_cracker
+display-name: '&6&lGold Cracker'
+display-item:
+  type: GOLD_INGOT
+  name: '&6&lCracker'
+  lore:
+    - '&7Right click to open'
+
+# Crack animations
+explosion-time: 40 # in ticks
+explosion-particles: # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html
+  - FLAME
+  - VILLAGER_HAPPY
+explosion-sounds: # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+  - ENTITY_GENERIC_EXPLODE
+  - ENTITY_FIREWORK_ROCKET_TWINKLE
+
+# Rewards
+rewards: # More like: actions to run when the cracker is activated
+  message: # Can be any name, this is section as more of a better way to recursively identify the reward on code.
+    id: message # Identifier [messages, money, items, command] | If this id is not provided it will assume the section's name (above) as the id, be careful.
+    messages: # Must be a list
+      - "&7Cracker opened!"
+      - "&a+1000$"
+  money: #  If there's no id, like these, it will assume the section's name as the id. So, be careful.
+    value: 1000
+  items:
+    helmet:
+      type: GOLDEN_HELMET
+      name: "&6&lGold Helmet"
+      lore:
+        - "&7Gold Helmet"
+      chance: 50 # 1-100
+      drop: true # If the item should be dropped on the ground or given to the player.
+    boots:
+      type: GOLDEN_BOOTS
+      name: "&6&lGold Boots"
+      chance: 50
+      drop: false
+    custom-paper:
+      type: PAPER
+      model-data: 100
+      name: "&6&lCustom Paper"
+      enchants:
+        unbreaking: 3
+        sharpness: 5
+      lore:
+        - "&7Uh... Magic paper?"
+      chance: 80
+      unbreakable: true
+      flags:
+        - HIDE_UNBREAKABLE
+      drop: false
+    player_skull:
+      type: PLAYER_HEAD
+      name: "&6&lPlayer Head"
+      chance: 50
+      drop: true
+      skull: "lukas_dev"
+    custom_skull:
+      type: PLAYER_HEAD
+      name: "&6&lCustom Head"
+      drop: true
+      skull-hash: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWQwZjI5MjVkZjM3ZmJkNWY4MDgyOWNhZmIzZTllOWFjMDBmNzVhOTkxYjIxMzFjMjZlMGIyMTk4ZTMwMDAxOCJ9fX0="
+
+  give-diamond-command:
+    id: command
+    commands:
+      - "[console] give %player% diamond 1"
+

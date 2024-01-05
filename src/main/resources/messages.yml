@@ -1,0 +1,9 @@
+messages:
+  command:
+    invalid: "&cInvalid command."
+    no-permission: "&cYou don't have permission to do that."
+    cannot-use: "&cPlayer not found."
+  cracker:
+    gave-cracker: "&7Gave you the cracker &e%cracker%&7."
+    no-permission: "&cYou don't have permission to do that."
+    not-found: "&cCracker not found."
