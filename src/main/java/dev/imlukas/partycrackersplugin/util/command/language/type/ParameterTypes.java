@@ -15,5 +15,6 @@ public class ParameterTypes {
     public static final ParameterType<Double> NUMERICAL = new NumericalParameterType();
     public static final ParameterType<MinecraftTime> MINECRAFT_TIME = new TimeParameterType();
     public static final ParameterType<Player> PLAYER = new PlayerParameterType();
+    public static final ParameterType<Player> OFFLINE_PLAYER = new PlayerParameterType();
 
 }

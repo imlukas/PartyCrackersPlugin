@@ -6,6 +6,7 @@ import dev.imlukas.partycrackersplugin.registry.PartyCrackerRegistry;
 import dev.imlukas.partycrackersplugin.util.command.command.impl.AdvancedCommand;
 import dev.imlukas.partycrackersplugin.util.command.command.impl.ExecutionContext;
 import dev.imlukas.partycrackersplugin.util.command.language.type.Parameter;
+import dev.imlukas.partycrackersplugin.util.command.language.type.ParameterTypes;
 import dev.imlukas.partycrackersplugin.util.command.language.type.impl.FilteredParameterType;
 import dev.imlukas.partycrackersplugin.util.command.language.type.impl.IntegerParameterType;
 import dev.imlukas.partycrackersplugin.util.storage.Messages;
@@ -21,9 +22,10 @@ public class GiveCrackerCommand extends AdvancedCommand {
 
     private final Messages messages;
     public GiveCrackerCommand(PartyCrackersPlugin plugin) {
-        super("cracker give <cracker> <amount>");
+        super("cracker give <target> <cracker> <amount>");
 
         this.messages = plugin.getMessages();
+        registerParameter(new Parameter<>("target", ParameterTypes.PLAYER, true));
         registerParameter(new Parameter<>("cracker", new CrackerParameterType(plugin), false));
         registerParameter(new Parameter<>("amount", new IntegerParameterType(), true));
     }
@@ -36,6 +38,13 @@ public class GiveCrackerCommand extends AdvancedCommand {
     @Override
     public void execute(CommandSender sender, ExecutionContext context) {
         Player player = (Player) sender;
+
+        Player target = context.getParameter("target");
+
+        if (target == null) {
+            target = player;
+        }
+
         PartyCracker cracker = context.getParameter("cracker");
 
         if (cracker == null) {
@@ -49,7 +58,7 @@ public class GiveCrackerCommand extends AdvancedCommand {
             return;
         }
 
-        player.getInventory().addItem(cracker.getDisplayItem(amount));
+        target.getInventory().addItem(cracker.getDisplayItem(amount));
         messages.sendMessage(player, "cracker.gave-item", new Placeholder<>("amount", amount), new Placeholder<>("cracker", cracker.getDisplayName()));
     }
 
@@ -74,11 +83,6 @@ public class GiveCrackerCommand extends AdvancedCommand {
         @Override
         public PartyCracker getDefaultValue() {
             return null;
-        }
-
-        @Override
-        public List<PartyCracker> getAllValues() {
-            return registry.getCrackers();
         }
 
         @Override

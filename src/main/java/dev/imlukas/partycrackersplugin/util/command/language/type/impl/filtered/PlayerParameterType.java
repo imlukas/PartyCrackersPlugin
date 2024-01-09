@@ -6,7 +6,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class PlayerParameterType implements FilteredParameterType<Player> {
     @Override
@@ -22,11 +25,6 @@ public class PlayerParameterType implements FilteredParameterType<Player> {
     @Override
     public Player getDefaultValue() {
         return null;
-    }
-
-    @Override
-    public List<Player> getAllValues() {
-        return new ArrayList<>(Bukkit.getOnlinePlayers());
     }
 
     @Override

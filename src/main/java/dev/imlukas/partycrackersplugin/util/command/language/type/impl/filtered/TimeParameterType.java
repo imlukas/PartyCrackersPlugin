@@ -32,11 +32,6 @@ public class TimeParameterType implements FilteredParameterType<MinecraftTime> {
     }
 
     @Override
-    public List<MinecraftTime> getAllValues() {
-        return List.of(MinecraftTime.values());
-    }
-
-    @Override
     public Collection<String> getSuggestions() {
         Set<String> suggestions = new HashSet<>();
 

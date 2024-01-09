@@ -48,10 +48,6 @@ public class ListParameterType<Type> implements FilteredParameterType<Type> {
         return null;
     }
 
-    @Override
-    public List<Type> getAllValues() {
-        return values;
-    }
 
     @Override
     public Collection<String> getSuggestions() {

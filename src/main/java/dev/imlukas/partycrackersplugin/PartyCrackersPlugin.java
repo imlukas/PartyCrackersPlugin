@@ -63,10 +63,6 @@ public final class PartyCrackersPlugin extends BetterJavaPlugin {
         // Plugin shutdown logic
     }
 
-    public void reload() {
-
-    }
-
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
             return false;

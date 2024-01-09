@@ -10,8 +10,6 @@ import java.util.List;
 
 public interface FilteredParameterType<Type> extends ParameterType<Type> {
 
-    List<Type> getAllValues();
-
     Collection<String> getSuggestions();
 
     @Nullable

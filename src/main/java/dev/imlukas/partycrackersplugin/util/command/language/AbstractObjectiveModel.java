@@ -278,14 +278,11 @@ public abstract class AbstractObjectiveModel<T extends CompiledObjective> {
                 suggestions.add(lastArgument.getName());
             }
 
-            // System.out.println("Reached the end of literal argument, so we can't suggest anything");
             return suggestions;
         }
 
         ParameterArgument<?> parameterArgument = (ParameterArgument<?>) lastArgument;
         addCompletions(suggestions, lastWord, parameterArgument);
-
-        // System.out.println("Reached the end of parameter argument, so we can't suggest anything");
         return suggestions;
 
     }
